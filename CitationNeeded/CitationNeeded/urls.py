@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from .views import index
+from paperupload.views import model_form_upload as paperupload_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^login/$', auth_views.LoginView.as_view(template_name =
                                                   'login/login.html')),
-    url(r'^logout/$', auth_views.LogoutView.as_view(template_name = 
+    url(r'^logout/$', auth_views.LogoutView.as_view(template_name =
                                                     'login/logout.html')),
-    url(r'^index/$', index, name='index'), 
+    url(r'^index/$', index, name='index'),
+    url(r'^upload/$', paperupload_views, name='upload'),
     url(r'^admin/', admin.site.urls),
 ]
