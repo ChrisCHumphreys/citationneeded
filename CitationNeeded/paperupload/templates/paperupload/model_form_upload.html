@@ -1,3 +1,5 @@
+{% extends 'login/base.html' %}
+
 {% if user.is_authenticated %}
 {% block content %}
   <form method="post" enctype="multipart/form-data">
@@ -8,6 +10,9 @@
 
   <p><a href="http://localhost:8000/index">Return to home</a></p>
 {% endblock %}
+
 {% else %}
+{% block else_content %}
 <h3>Please log in</h3>
+{% endblock %}
 {% endif %}
