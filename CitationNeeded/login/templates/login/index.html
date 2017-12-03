@@ -1,7 +1,14 @@
 {% extends 'login/base.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-  <p>{{user.username}} is logged in</p>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" action="../upload" method="get">
+      <p>Welcome, {{user.username}}!</p>
+      <button>Upload Paper</button></a>
+    </form>
+  </div>
+</div>
 {% else %}
   <p> You are not logged in.</p>
 {% endif %}
